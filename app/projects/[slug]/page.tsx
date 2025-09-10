@@ -13,6 +13,13 @@ interface ProjectPageProps {
   }
 }
 
+// 生成静态参数，用于静态导出
+export function generateStaticParams() {
+  return projects.map((project) => ({
+    slug: project.url.split('/').pop() || project.id,
+  }))
+}
+
 const statusColors = {
   active: 'bg-green-100 text-green-800',
   development: 'bg-yellow-100 text-yellow-800',
